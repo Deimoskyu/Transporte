@@ -1,5 +1,7 @@
 package co.edu.uniquindio.pr2.model;
 
+import java.util.Scanner;
+
 public class Vehiculo {
     private String placa;
     private String modelo;
@@ -62,6 +64,11 @@ public class Vehiculo {
                 ", marca='" + marca + '\'' +
                 ", color='" + color + '\'' +
                 '}';
+    }
+    public static String buscarPlaca(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Ingrese la placa del vehiculo de pasajeros:");
+        return scanner.nextLine().trim().toUpperCase();
     }
 
 }

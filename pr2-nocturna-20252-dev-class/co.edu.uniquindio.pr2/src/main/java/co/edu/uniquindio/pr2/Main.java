@@ -3,12 +3,19 @@ package co.edu.uniquindio.pr2;
 import co.edu.uniquindio.pr2.factory.ModelFactory;
 import co.edu.uniquindio.pr2.model.*;
 
+import static co.edu.uniquindio.pr2.model.EmpresaTransporte.ingresarPeso;
+import static co.edu.uniquindio.pr2.model.Vehiculo.buscarPlaca;
+
+
 public class Main {
     public static void main(String[] args) {
         ModelFactory modelFactory = ModelFactory.getInstance();
         EmpresaTransporte empresaTransporte = modelFactory.inicializarDatos();
         crearPropietarioVehiculoCarga(modelFactory);
-       calcularTotalPasajerosTransportados(empresaTransporte);
+        empresaTransporte.listaPropietarioVehiculoCarga(ingresarPeso());
+        empresaTransporte.usuariosMovilizadosEnVehiculo(empresaTransporte,buscarPlaca());
+        empresaTransporte.propietariosMayores();
+        empresaTransporte.calcularTotalPasajerosTransportados(empresaTransporte,buscarPlaca());
     }
 
     private static void calcularTotalPasajerosTransportados(EmpresaTransporte empresaTransporte) {
